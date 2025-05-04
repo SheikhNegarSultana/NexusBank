@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+      <!-- Tailwind + DaisyUI CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <!-- Font CDN -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&family=Sora:wght@100..800&display=swap" rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+
+  <!-- Icon CDN -->
+  <script src="https://kit.fontawesome.com/84757c07df.js" crossorigin="anonymous"></script>
+
+  <style>
+    .dm-sans{
+      font-family: "DM Sans", sans-serif;
+      font-optical-sizing: auto;
+    }
+    
+    #playfair{
+      font-family: "Playfair Display", serif;
+      font-optical-sizing: auto;
+    }
+  </style>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body class="dm-sans ">
+
+<!-- NavBar start -->
+<div class=" md:pt-[2rem] md:px-[4rem] pt-[1rem] px-[1rem]">
+    <div class="navbar">
+        <div class="navbar-start">
+          <a class="font-bold text-[1.8rem] text-[#1E3A8A]" id="playfair" href="index.html">NexusBank</a>
+        </div>
+    
+        <div class="navbar-center hidden lg:flex">
+          <ul class="menu menu-horizontal px-1 font-semibold text-[1rem]">
+            <li><a>Features</a></li>
+            <li><a>About</a></li>
+            <li><a>Contact</a></li>
+          </ul>
+        </div>
+        <div class="navbar-end gap-2">
+          <button class="btn-navy-outline md:block hidden "><a href="./Login.html">Login</a></button>
+          <button class="btn-navy md:block hidden">Sign Up</button>
+    
+    <!-- Mobile NavBar -->
+          <div class="dropdown dropdown-end relative">
+    
+            <div tabindex="0" role="button" class="btn btn-ghost md:hidden">
+              <i class="fa-solid fa-bars text-[1.4rem] text-[#1E3A8A]"></i>
+            </div>
+    
+            <ul
+              tabindex="0"
+              class="menu menu-lg dropdown-content bg-[#586999] rounded-box mt-[1rem] w-[18rem] shadow font-semibold text-white ">
+              <li><a>Features</a></li>
+              <li><a>About</a></li>
+              <li><a>Contact</a></li>
+              <li><a href="./Login.html">Login</a></li>
+              <li><a>Sign Up</a></li>
+            </ul>
+    
+          </div>
+        </div>
+    
+        <!-- Mobile NavBar -->
+        </div>
+      </div>
+    </div>
+    <!-- NavBar Done -->
+
+<!-- Login Section Start -->
+ <div class=" flex md:mx-[4rem] mx-[2rem] items-center justify-center md:mt-[6rem] mt-[2rem]">
+    <div class="flex flex-col md:gap-[2rem] md:flex-row w-full ">
+        <!-- Image Section -->
+        <div class="md:w-1/2 w-full mb-6 md:mb-0">
+            <img class=" rounded-2xl" src="Assets/Login.jpg" alt="">
+        </div>
+        <!-- Form Section -->
+        <div class="md:w-1/2 w-full md:pl-6">
+            <div class="card bg-white md:shadow-lg md:shadow-[#7590da] rounded-lg p-4 md:p-6">
+                <h1 class="text-2xl font-bold mb-4">Welcome Back</h1>
+                <form class="space-y-4">
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text">Account ID</span>
+                        </label>
+
+                        <input id="acc-Id" type="Number" placeholder="Type Your ID" class="input input-bordered w-full" required />
+                    </div>
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text">Password</span>
+                        </label>
+
+                        <input id="Password" type="password" placeholder="******" class="input input-bordered w-full" required />
+
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <label class="flex items-center cursor-pointer">
+                            <input type="checkbox" class="checkbox checkbox-sm" />
+                            <span class="label-text ml-2">Remember me</span>
+                        </label>
+                        <a href="#" class="text-sm text[#1E3A8A] hover:underline">Forgot password?</a>
+                    </div>
+                    <button id="Login-btn" type="submit" class="btn-navy  w-full">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Login Section Done -->
+
+<script src="js.js"></script>
+</body>
+</html>
