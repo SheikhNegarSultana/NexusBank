@@ -1,0 +1,58 @@
+/* Primary Button */
+.btn-navy {
+    background-color: #1E3A8A;
+    color: #ffffff; 
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.btn-navy:hover {
+    background-color: #002244; 
+}
+
+.btn-navy:focus {
+    outline: 2px solid #004488; 
+    outline-offset: 2px;
+}
+
+/* Secondary Button */
+.btn-navy-outline {
+    background-color: transparent; 
+    border: 2px solid #1E3A8A; 
+    color: #1E3A8A; 
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-navy-outline:hover {
+    background-color: #002244; 
+    color: #ffffff; 
+}
+
+.btn-navy-outline:focus {
+    outline: 2px solid #004488; 
+    outline-offset: 2px;
+}
+
+/* Hero Section Card */
+.card-container {
+    perspective: 1000px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#card {
+    transition: transform 0.3s ease;
+    transform-style: preserve-3d;
+    cursor: pointer;
+}
