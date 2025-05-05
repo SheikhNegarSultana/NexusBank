@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <!-- Tailwind + DaisyUI CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- Font CDN -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&family=Sora:wght@100..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+
+    <!-- Icon CDN -->
+    <script src="https://kit.fontawesome.com/84757c07df.js" crossorigin="anonymous"></script>
+
+    <style>
+        .dm-sans {
+            font-family: "DM Sans", sans-serif;
+            font-optical-sizing: auto;
+        }
+        #playfair {
+            font-family: "Playfair Display", serif;
+            font-optical-sizing: auto;
+        }
+        .modal-box {
+            width: 90%;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+            transition: none; /* Disable transitions to prevent shaking */
+        }
+        .modal {
+            /* Let DaisyUI handle visibility */
+        }
+        @media (max-width: 768px) {
+            .modal-box {
+                width: 95%;
+                padding: 1rem;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dm-sans">
+
+<!-- NAVBAR Start -->
+<nav class="md:pt-[3rem] md:px-[4.8rem] pt-[1rem] px-[1rem] py-3 flex items-center justify-between">
+    <a href="index.html" id="playfair" class="font-bold text-[1.8rem] text-[#1E3A8A]">NexusBank</a>
+    <!-- Center Nav -->
+    <ul class="hidden md:flex space-x-8 px-1 font-semibold text-[1rem]">
+        <li><a href="./Dashboard.html" class="hover:text-[#1E3A8A]">Dashboard</a></li>
+        <li><a href="#deposit" class="hover:text-[#1E3A8A]">Deposit</a></li>
+        <li><a href="#withdraw" class="hover:text-[#1E3A8A]" >Withdraw</a></li>
+        <li><a href="#transactions" class="hover:text-[#1E3A8A]" >Transactions</a></li>
+    </ul>
+    <!-- Right Side Nav -->
+    <div class="flex items-center space-x-2 md:space-x-4">
+        <!-- Profile dropdown -->
+        <div class="dropdown dropdown-end relative">
+            <label tabindex="0" class="cursor-pointer">
+                <div class="avatar avatar-placeholder">
+                    <div class="bg-[#2e4688] border-black border-[0.04rem] md:border-[0.1rem] text-neutral-content w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center">
+                        <span class="text-xl md:text-3xl">J</span>
+                    </div>
+                </div>
+            </label>
+            <ul tabindex="0" class="menu menu-compact dropdown-content bg-white rounded-box mt-2 w-40 shadow font-semibold text-gray-800 hidden md:block">
+                <li><a href="./index.html">Sign Out</a></li>
+            </ul>
+        </div>
+        <!-- Mobile NavBar -->
+        <div class="dropdown dropdown-end md:hidden">
+            <label tabindex="0" class="btn btn-ghost btn-circle">
+                <i class="fa fa-bars text-2xl text-[#1E3A8A]"></i>
+            </label>
+            <ul tabindex="0" class="menu menu-lg dropdown-content bg-[#586999] rounded-box mt-[1rem] w-[12rem] shadow font-semibold text-white z-50">
+                <li><a href="./Dashboard.html">Dashboard</a></li>
+                <li><a href="#deposit">Deposit</a></li>
+                <li><a href="#withdraw" >Withdraw</a></li>
+                <li><a href="#transactions" >Transactions</a></li>
+                <li><a href="./index.html">Sign Out</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- NAVBAR Done -->
+
+<!-- Dashboard Start-->
+<main class="flex-1 p-6 space-y-10 md:mt-[2rem] mt-[1rem] md:mx-[6rem] mx-[2rem]">
+<!-- Header Start -->
+    <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        <div>
+            <h1 class="text-4xl font-bold text-gray-800">Good Morning, John!</h1>
+            <p class="text-gray-600">Here’s your banking overview.</p>
+        </div>
+        <div class="flex space-x-2">
+            <button class="btn btn-sm btn-outline">Today</button>
+            <button class="btn btn-sm btn-outline">This Week</button>
+            <button class="btn btn-sm bg-[#1E3A8A] text-white ">This Month</button>
+        </div>
+    </div>
+<!-- Header Start End-->
+
+<!-- Metrics Cards Start -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Balance -->
+        <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-6">
+            <div class="flex items-center justify-between mb-4">
+                <p class="text-sm font-medium text-gray-500">Balance</p>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-[#1E3A8A]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-2.21 0-4 .895-4 2s1.79 2 4 2 4-.895 4-2-1.79-2-4-2zM6 14v2a4 4 0 008 0v-2" />
+                </svg>
+            </div>
+            <p  class="text-2xl font-bold text-gray-800">৳ <span id="currentAmount">107800</span></p>
+            <p class="text-xs text-gray-400 mt-1" id="day"> </p>
+        </div>
+
+<!-- Monthly Deposits Start -->
+        <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-6">
+            <div class="flex items-center justify-between mb-4">
+                <p class="text-sm font-medium text-gray-500">Monthly Deposits</p>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h4l3 8 4-16 3 8h4" />
+                </svg>
+            </div>
+            <p class="text-2xl font-bold text-green-600">৳ <span id="monthlyDeposit">989000</span></p>
+            <p class="text-xs text-gray-400 mt-1">Goal: ৳1170000</p>
+        </div>
+<!-- Monthly Deposits Done -->
+
+<!-- Monthly Withdrawals Start-->
+        <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-6">
+            <div class="flex items-center justify-between mb-4">
+                <p class="text-sm font-medium text-gray-500">Monthly Withdrawals</p>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-[#ff0000]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12H3m0 0l9-9m-9 9l9 9" />
+                </svg>
+            </div>
+            <p class="text-2xl font-bold text-[#ff0000]">৳380,182</p>
+            <p class="text-xs text-gray-400 mt-1">Budget: ৳585,000</p>
+        </div>
+<!-- Monthly Withdrawals Done-->
+
+<!-- Actions Start-->
+<div class="bg-white rounded-lg shadow hover:shadow-lg transition p-6 flex flex-col justify-between">
+
+  <div class="flex flex-col space-y-2"> 
+    <button class="btn  btn-outline w-full font-bold ">Deposit</button> 
+    <button class="btn bg-[#ff0000] text-white w-full font-bold">Withdraw</button>
+</div>
+</div>   
+<!-- Actions Done-->
+
+</div>
+<!-- Metrics Cards End -->
+
+
+  <!-- CHARTS -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- Line Chart  -->
+        <div class="bg-white rounded-lg shadow p-6 overflow-hidden">
+            <h2 class="text-lg font-semibold mb-4">Balance Over Time</h2>
+            <svg viewBox="0 0 200 100" class="w-full h-48">
+                <polyline points="0,70 40,55 80,65 120,45 160,35 200,25" stroke="currentColor" stroke-width="3" fill="none" class="text-indigo-600"/>
+                <circle cx="200" cy="25" r="4" fill="#4F46E5" />
+            </svg>
+        </div>
+
+        <!-- Pie Chart  -->
+        <div class="bg-white rounded-lg shadow p-6 overflow-hidden">
+            <h2 class="text-lg font-semibold mb-4">Spending by Category</h2>
+            <svg viewBox="0 0 100 100" class="w-32 h-32 mx-auto">
+                <circle cx="50" cy="50" r="30" fill="#A7F3D0"/>
+                <path d="M50,20 A30,30 0 0,1 80,50 L50,50 Z" fill="#34D399"/>
+                <path d="M50,50 L20,50 A30,30 0 0,1 50,20 Z" fill="#059669"/>
+            </svg>
+        </div>
+    </div>
+
+    <!-- RECENT TRANSACTIONS -->
+    <div class="bg-white rounded-lg shadow p-6">
+        <div class="flex items-center justify-between mb-4">
+            <h2 class="text-lg font-semibold">Recent Transactions</h2>
+            <input type="search" placeholder="Search…" class="input input-bordered input-sm w-64"/>
+        </div>
+        <div class="overflow-x-auto">
+            <table class="table w-full table-zebra">
+                <thead>
+                    <tr class="bg-gray-100">
+                        <th>Date</th>
+                        <th>Description</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>May 5, 2025</td>
+                        <td>Salary Deposit</td>
+                        <td class="text-green-600">+ ৳468,000.00</td>
+                        <td>Completed</td>
+                    </tr>
+                    <tr>
+                        <td>May 3, 2025</td>
+                        <td>Electric Bill</td>
+                        <td class="text-[#ff0000]">− ৳14,040.00</td>
+                        <td>Paid</td>
+                    </tr>
+                    <tr>
+                        <td>May 1, 2025</td>
+                        <td>Grocery Store</td>
+                        <td class="text-[#ff0000]">− ৳30,040.75</td>
+                        <td>Completed</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- QUICK ACTIONS & BILLS -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Quick Actions -->
+        <div class="bg-white rounded-lg shadow p-6 space-y-4">
+            <h2 class="text-lg font-semibold">Quick Actions</h2>
+            <div class="grid grid-cols-3 gap-4">
+                <button class="btn btn-outline" onclick="openTransferModal()">Transfer</button>
+                <button class="btn btn-outline" onclick="openPayBillModal()">Pay Bill</button>
+                <button class="btn btn-outline" onclick="openTopUpModal()">Top Up</button>
+            </div>
+        </div>
+        <!-- Upcoming Bills -->
+        <div class="bg-white rounded-lg shadow p-6 space-y-4">
+            <h2 class="text-lg font-semibold">Upcoming Bills</h2>
+            <ul class="space-y-2">
+                <li class="flex justify-between">
+                    <span>Internet</span>
+                    <span class="text-gray-600">৳7,020 • May 15</span>
+                </li>
+                <li class="flex justify-between">
+                    <span>Electric</span>
+                    <span class="text-gray-600">৳14,040 • May 20</span>
+                </li>
+                <li class="flex justify-between">
+                    <span>Rent</span>
+                    <span class="text-gray-600">৳140,400 • June 1</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</main>
+
+
+<!-- Deposit Modal Start -->
+<div class="modal" id="depositModal">
+  <div class="modal-box">
+      <h3 class="font-bold text-lg text-[#1E3A8A] md:mb-[2rem] mb-[1rem] ">Deposit Funds</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Deposit Inputs Start  -->
+          <div>
+              <h4 class="font-semibold text-[#1E3A8A] md:mb-[1rem]">Deposit Details</h4>
+              <div class="form-control">
+                  <label class="label">
+                      <span class="label-text">Account</span>
+                  </label>
+                  <select id="accountSelect" class="select select-bordered w-full" aria-label="Select an account">
+                      <option>Checking Account ***1234</option>
+                      <option>Savings Account ***5678</option>
+                  </select>
+              </div>
+              <div class="form-control">
+                  <label class="label">
+                      <span class="label-text ">Amount</span>
+                  </label>
+                  <div class="input-group">
+                      <span>৳</span>
+                      <input id="depositAmount" type="number" placeholder="0.00" class="input input-bordered w-full" aria-label="Enter deposit amount" />
+                  </div>
+              </div>
+              <div class="form-control">
+                  <label class="label">
+                      <span  class="label-text">PIN</span>
+                  </label>
+                  <input id="depositPin" type="password" placeholder="Enter PIN" class="input input-bordered w-full" aria-label="Enter PIN"  />
+                  <p class="text-xs text-gray-500 mt-1">PIN must match to proceed with deposit</p>
+              </div>
+          </div>
+<!-- Deposit Inputs End  -->
+
+<!-- Deposit Method -->
+          <div>
+              <h4 class="font-semibold md:mb-[1rem] text-[#1E3A8A]" >Deposit Method</h4>
+              <div class="space-y-2">
+                  <label class="block">
+                      <input type="radio" name="depositMethod" value="bank" class="hidden peer">
+                      <div class="card bg-base-100 shadow cursor-pointer peer-checked:ring-2 peer-checked:ring-[#1E3A8A]">
+                          <div class="card-body p-4">
+                              <div class="flex items-center">
+                                  <i class="fas fa-university text-blue-500 mr-2"></i>
+                                  <div>
+                                      <h5 class="card-title text-sm">Bank Transfer</h5>
+                                      <p class="text-xs text-gray-500">Transfer from another bank</p>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </label>
+                  <label class="block">
+                      <input type="radio" name="depositMethod" value="credit" class="hidden peer">
+                      <div class="card bg-base-100 shadow cursor-pointer peer-checked:ring-2 peer-checked:ring-[#1E3A8A]">
+                          <div class="card-body p-4">
+                              <div class="flex items-center">
+                                  <i class="fas fa-credit-card text-green-600 mr-2"></i>
+                                  <div>
+                                      <h5 class="card-title text-sm">Credit Card</h5>
+                                      <p class="text-xs text-gray-500">Use your credit card</p>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </label>
+                  <label class="block">
+                      <input type="radio" name="depositMethod" value="cash" class="hidden peer">
+                      <div class="card bg-base-100 shadow cursor-pointer peer-checked:ring-2 peer-checked:ring-[#1E3A8A]">
+                          <div class="card-body p-4">
+                              <div class="flex items-center">
+                                  <i class="fas fa-money-bill-wave text-yellow-500 mr-2"></i>
+                                  <div>
+                                      <h5 class="card-title text-sm">Cash Deposit</h5>
+                                      <p class="text-xs text-gray-500">Deposit at a branch</p>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </label>
+              </div>
+          </div>
+      </div>
+      <div class="modal-action mt-4">
+          <button id="depositBtn" class="btn btn-primary bg-[#1E3A8A]">Deposit</button>
+          <button class="btn" onclick="closeDepositModal()">Close</button>
+      </div>
+  </div>
+</div>
+<!-- Deposit Modal Done -->
+
+<!-- Dashboard Done-->
+
+
+
+
+</body>
+</html>
