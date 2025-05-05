@@ -149,8 +149,8 @@
 <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-6 flex flex-col justify-between">
 
   <div class="flex flex-col space-y-2"> 
-    <button class="btn  btn-outline w-full font-bold ">Deposit</button> 
-    <button class="btn bg-[#ff0000] text-white w-full font-bold">Withdraw</button>
+    <a href="#deposit"><button class="btn btn-outline w-full font-bold ">Deposit</button></a> 
+    <a href=""><button class="btn bg-[#ff0000] text-white w-full font-bold">Withdraw</button></a>
 </div>
 </div>   
 <!-- Actions Done-->
@@ -256,12 +256,13 @@
 
 <!-- Deposit Modal Start -->
 <div class="modal" id="depositModal">
-  <div class="modal-box">
+  <div class="modal-box"> 
+
       <h3 class="font-bold text-lg text-[#1E3A8A] md:mb-[2rem] mb-[1rem] ">Deposit Funds</h3>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 <!-- Deposit Inputs Start  -->
           <div>
-              <h4 class="font-semibold text-[#1E3A8A] md:mb-[1rem]">Deposit Details</h4>
+              <h4 class="font-semibold text-[#1E3A8A] md:mb-[1rem]">Deposit Details</h4> 
               <div class="form-control">
                   <label class="label">
                       <span class="label-text">Account</span>
@@ -290,7 +291,7 @@
           </div>
 <!-- Deposit Inputs End  -->
 
-<!-- Deposit Method -->
+<!-- Deposit Modal Start -->
           <div>
               <h4 class="font-semibold md:mb-[1rem] text-[#1E3A8A]" >Deposit Method</h4>
               <div class="space-y-2">
@@ -341,7 +342,7 @@
       </div>
       <div class="modal-action mt-4">
           <button id="depositBtn" class="btn btn-primary bg-[#1E3A8A]">Deposit</button>
-          <button class="btn" onclick="closeDepositModal()">Close</button>
+          <button class="btn" id="closeDepositBtn" >Close</button>
       </div>
   </div>
 </div>
@@ -350,7 +351,9 @@
 <!-- Dashboard Done-->
 
 
-
+<script src="recentDay.js"></script>
+<script src="deposit.js"></script>
+<script src="modals.js"></script>
 
 </body>
 </html>
