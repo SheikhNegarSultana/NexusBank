@@ -22,6 +22,31 @@ function modals(){
         event.preventDefault();
         closeDepositModal();
     });
+
+    // Withdraw Modal
+    const withdrawModal = document.getElementById('withdrawModal');
+    const closeWithdrawBtn = document.getElementById('closeWithdrawBtn');
+
+    function openWithdrawModal() {
+        withdrawModal.classList.add('modal-open');
+    }
+
+    function closeWithdrawModal() {
+        withdrawModal.classList.remove('modal-open');
+    }
+    
+    document.querySelectorAll('a[href="#withdraw"]').forEach(link => {
+        link.addEventListener('click', function(event) {
+            event.preventDefault();
+            openWithdrawModal();
+        });
+    });
+
+    closeWithdrawBtn.addEventListener('click', function(event) {
+        event.preventDefault();
+        closeWithdrawModal();
+    });
     
 }
+
 modals();
