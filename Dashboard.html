@@ -140,8 +140,8 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12H3m0 0l9-9m-9 9l9 9" />
                 </svg>
             </div>
-            <p class="text-2xl font-bold text-[#ff0000]">৳380,182</p>
-            <p class="text-xs text-gray-400 mt-1">Budget: ৳585,000</p>
+            <p class="text-2xl font-bold text-[#ff0000]">৳ <span id="monthlyWithdraw">380100</span></p>
+            <p class="text-xs text-gray-400 mt-1">Budget: ৳585000</p>
         </div>
 <!-- Monthly Withdrawals Done-->
 
@@ -290,8 +290,6 @@
               </div>
           </div>
 <!-- Deposit Inputs End  -->
-
-<!-- Deposit Modal Start -->
           <div>
               <h4 class="font-semibold md:mb-[1rem] text-[#1E3A8A]" >Deposit Method</h4>
               <div class="space-y-2">
@@ -348,12 +346,91 @@
 </div>
 <!-- Deposit Modal Done -->
 
-<!-- Dashboard Done-->
+<!-- Withdraw Modal Start -->
+<div class="modal" id="withdrawModal">
+  <div class="modal-box">
+      <h3 class="font-bold text-lg text-[#1E3A8A] md:mb-[2rem] mb-[1rem] ">Withdraw Funds</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <!-- Withdrawal Details -->
+          <div>
+              <h4 class="font-semibold text-[#1E3A8A] md:mb-[1rem]">Withdrawal Details</h4>
+              <div class="form-control">
+                  <label class="label">
+                      <span class="label-text">Account</span>
+                  </label>
+                  <select id="withdrawAccountSelect" class="select select-bordered w-full" aria-label="Select an account for withdrawal">
+                      <option>Checking Account ***1234</option>
+                      <option>Savings Account ***5678</option>
+                  </select>
+              </div>
+              <div class="form-control">
+                  <label class="label">
+                      <span class="label-text">Amount</span>
+                  </label>
+                  <div class="input-group">
+                      <span>৳</span>
+                      <input id="withdrawAmount" type="number" placeholder="0.00" class="input input-bordered w-full" aria-label="Enter withdrawal amount" />
+                  </div>
+              </div>
+
+              <div class="form-control">
+                <label class="label">
+                    <span class="label-text">PIN</span>
+                </label>
+                <input id="withdrawPin" type="password" placeholder="Enter PIN" class="input input-bordered w-full" aria-label="Enter PIN" />
+                <p class="text-xs text-gray-500 mt-1">PIN must match to proceed with deposit</p>
+            </div>
+          </div>
+
+
+          <!-- Withdrawal Method -->
+          <div>
+              <h4 class="font-semibold md:mb-[1rem] text-[#1E3A8A]">Withdrawal Method</h4>
+              <div class="space-y-2">
+                  <label class="block">
+                      <input type="radio" name="withdrawMethod" value="bank" class="hidden peer">
+                      <div class="card bg-base-100 shadow cursor-pointer peer-checked:ring-2 peer-checked:ring-blue-500">
+                          <div class="card-body p-4">
+                              <div class="flex items-center">
+                                  <i class="fas fa-university text-blue-500 mr-2"></i>
+                                  <div>
+                                      <h5 class="card-title text-sm">Bank Transfer</h5>
+                                      <p class="text-xs text-gray-500">Transfer to another bank</p>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </label>
+                  <label class="block">
+                      <input type="radio" name="withdrawMethod" value="cash" class="hidden peer">
+                      <div class="card bg-base-100 shadow cursor-pointer peer-checked:ring-2 peer-checked:ring-blue-500">
+                          <div class="card-body p-4">
+                              <div class="flex items-center">
+                                  <i class="fas fa-money-bill-wave text-yellow-500 mr-2"></i>
+                                  <div>
+                                      <h5 class="card-title text-sm">Cash Withdrawal</h5>
+                                      <p class="text-xs text-gray-500">Withdraw at a branch</p>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </label>
+              </div>
+          </div>
+      </div>
+      <div class="modal-action mt-4">
+          <button id="withdrawBtn" class="btn text-white bg-[#fc0505]">Withdraw</button>
+          <button class="btn" id="closeWithdrawBtn" >Close</button>
+      </div>
+</div>
+</div>
+<!-- Withdraw Modal Done -->
 
 
 <script src="recentDay.js"></script>
 <script src="deposit.js"></script>
 <script src="modals.js"></script>
+<script src="Withdraw.js"></script>
 
 </body>
 </html>
