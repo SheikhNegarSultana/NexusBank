@@ -23,7 +23,7 @@ function modals(){
         closeDepositModal();
     });
 
-    // Withdraw Modal
+    // Withdraw Modal Start
     const withdrawModal = document.getElementById('withdrawModal');
     const closeWithdrawBtn = document.getElementById('closeWithdrawBtn');
 
