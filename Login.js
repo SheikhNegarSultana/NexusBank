@@ -12,7 +12,7 @@ function Login(){
         }
         else{
             const passValue = pass.value.trim();
-            if(passValue === "1234"){
+            if(passValue === "bank1234"){
                 window.location.href = "Dashboard.html"
             }
             else{
