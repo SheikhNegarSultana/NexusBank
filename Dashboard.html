@@ -55,7 +55,7 @@
         <li><a href="./Dashboard.html" class="hover:text-[#1E3A8A]">Dashboard</a></li>
         <li><a href="#deposit" class="hover:text-[#1E3A8A]">Deposit</a></li>
         <li><a href="#withdraw" class="hover:text-[#1E3A8A]" >Withdraw</a></li>
-        <li><a href="#transactions" class="hover:text-[#1E3A8A]" >Transactions</a></li>
+        <li><a href="#transactions"  class="hover:text-[#1E3A8A]" >Transactions</a></li>
     </ul>
     <!-- Right Side Nav -->
     <div class="flex items-center space-x-2 md:space-x-4">
@@ -150,7 +150,7 @@
 
   <div class="flex flex-col space-y-2"> 
     <a href="#deposit"><button class="btn btn-outline w-full font-bold ">Deposit</button></a> 
-    <a href=""><button class="btn bg-[#ff0000] text-white w-full font-bold">Withdraw</button></a>
+    <a href="#withdraw"><button class="btn bg-[#ff0000] text-white w-full font-bold">Withdraw</button></a>
 </div>
 </div>   
 <!-- Actions Done-->
@@ -197,26 +197,10 @@
                         <th>Status</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>May 5, 2025</td>
-                        <td>Salary Deposit</td>
-                        <td class="text-green-600">+ ৳468,000.00</td>
-                        <td>Completed</td>
-                    </tr>
-                    <tr>
-                        <td>May 3, 2025</td>
-                        <td>Electric Bill</td>
-                        <td class="text-[#ff0000]">− ৳14,040.00</td>
-                        <td>Paid</td>
-                    </tr>
-                    <tr>
-                        <td>May 1, 2025</td>
-                        <td>Grocery Store</td>
-                        <td class="text-[#ff0000]">− ৳30,040.75</td>
-                        <td>Completed</td>
-                    </tr>
+                <tbody id="dashboardHistory">
+
                 </tbody>
+                
             </table>
         </div>
     </div>
@@ -238,15 +222,15 @@
             <ul class="space-y-2">
                 <li class="flex justify-between">
                     <span>Internet</span>
-                    <span class="text-gray-600">৳7,020 • May 15</span>
+                    <span class="text-gray-600">৳7,020 </span>
                 </li>
                 <li class="flex justify-between">
                     <span>Electric</span>
-                    <span class="text-gray-600">৳14,040 • May 20</span>
+                    <span class="text-gray-600">৳14,040 </span>
                 </li>
                 <li class="flex justify-between">
                     <span>Rent</span>
-                    <span class="text-gray-600">৳140,400 • June 1</span>
+                    <span class="text-gray-600">৳140,400 </span>
                 </li>
             </ul>
         </div>
@@ -262,10 +246,10 @@
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 <!-- Deposit Inputs Start  -->
           <div>
-              <h4 class="font-semibold text-[#1E3A8A] md:mb-[1rem]">Deposit Details</h4> 
+              <h4 class="font-semibold text-[#1E3A8A] mb-[0.7rem] md:mb-[1rem]">Deposit Details</h4> 
               <div class="form-control">
                   <label class="label">
-                      <span class="label-text">Account</span>
+                      <span class="label-text text-black font-bold">Account</span>
                   </label>
                   <select id="accountSelect" class="select select-bordered w-full" aria-label="Select an account">
                       <option>Checking Account ***1234</option>
@@ -274,25 +258,32 @@
               </div>
               <div class="form-control">
                   <label class="label">
-                      <span class="label-text ">Amount</span>
+                      <span class="label-text text-black font-bold mt-[0.6rem]">Amount</span>
                   </label>
                   <div class="input-group">
-                      <span>৳</span>
-                      <input id="depositAmount" type="number" placeholder="0.00" class="input input-bordered w-full" aria-label="Enter deposit amount" />
+                     
+                      <input id="depositAmount" type="number" placeholder="৳ 0.00" class="input input-bordered w-full" aria-label="Enter deposit amount" />
                   </div>
               </div>
               <div class="form-control">
                   <label class="label">
-                      <span  class="label-text">PIN</span>
+                      <span  class="label-text text-black font-bold mt-[0.6rem]">PIN</span>
                   </label>
                   <input id="depositPin" type="password" placeholder="Enter PIN" class="input input-bordered w-full" aria-label="Enter PIN"  />
                   <p class="text-xs text-gray-500 mt-1">PIN must match to proceed with deposit</p>
               </div>
+
+              <div class="form-control">
+                  <label class="label">
+                      <span  class="label-text text-black font-bold mt-[0.6rem]">Description</span>
+                  </label>
+                  <input id="descriptionInputDeposit" type="text" placeholder="Description" class="input input-bordered w-full" aria-label="Write Description"  />
+              </div>
           </div>
 <!-- Deposit Inputs End  -->
           <div>
-              <h4 class="font-semibold md:mb-[1rem] text-[#1E3A8A]" >Deposit Method</h4>
-              <div class="space-y-2">
+              <h4 class="font-semibold mt-[1rem] md:mt-0 md:mb-[1rem] text-[#1E3A8A]" >Deposit Method</h4>
+              <div class="space-y-2 md:mt-[3.6rem]">
                   <label class="block">
                       <input type="radio" name="depositMethod" value="bank" class="hidden peer">
                       <div class="card bg-base-100 shadow cursor-pointer peer-checked:ring-2 peer-checked:ring-[#1E3A8A]">
@@ -353,10 +344,10 @@
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
           <!-- Withdrawal Details -->
           <div>
-              <h4 class="font-semibold text-[#1E3A8A] md:mb-[1rem]">Withdrawal Details</h4>
-              <div class="form-control">
+              <h4 class="font-semibold text-[#1E3A8A] mt-[0.6rem] md:mt-0 mb-[0.7rem] md:mb-[1rem]">Withdrawal Details</h4>
+              <div class="form-control ">
                   <label class="label">
-                      <span class="label-text">Account</span>
+                      <span class="label-text text-black font-bold">Account</span>
                   </label>
                   <select id="withdrawAccountSelect" class="select select-bordered w-full" aria-label="Select an account for withdrawal">
                       <option>Checking Account ***1234</option>
@@ -365,28 +356,34 @@
               </div>
               <div class="form-control">
                   <label class="label">
-                      <span class="label-text">Amount</span>
+                      <span class="label-text text-black font-bold mt-[0.6rem]">Amount</span>
                   </label>
                   <div class="input-group">
-                      <span>৳</span>
-                      <input id="withdrawAmount" type="number" placeholder="0.00" class="input input-bordered w-full" aria-label="Enter withdrawal amount" />
+                      <input id="withdrawAmount" type="number" placeholder="৳ 0.00" class="input input-bordered w-full" aria-label="Enter withdrawal amount" />
                   </div>
               </div>
 
               <div class="form-control">
                 <label class="label">
-                    <span class="label-text">PIN</span>
+                    <span class="label-text text-black font-bold mt-[0.6rem]">PIN</span>
                 </label>
                 <input id="withdrawPin" type="password" placeholder="Enter PIN" class="input input-bordered w-full" aria-label="Enter PIN" />
-                <p class="text-xs text-gray-500 mt-1">PIN must match to proceed with deposit</p>
+                <p class="text-xs text-gray-500 mt-1">PIN must match to proceed with withdraw</p>
             </div>
+
+                 <div class="form-control">
+                  <label class="label">
+                      <span  class="label-text text-black font-bold mt-[0.6rem]">Description</span>
+                  </label>
+                  <input id="descriptionInputWithdraw" type="text" placeholder="Description" class="input input-bordered w-full" aria-label="Write Description"  />
+              </div>
           </div>
 
 
           <!-- Withdrawal Method -->
           <div>
-              <h4 class="font-semibold md:mb-[1rem] text-[#1E3A8A]">Withdrawal Method</h4>
-              <div class="space-y-2">
+              <h4 class="font-semibold md:mb-[1rem] text-[#1E3A8A] mt-[1rem] md:mt-0">Withdrawal Method</h4>
+              <div class="space-y-2 md:mt-[5.7rem]">
                   <label class="block">
                       <input type="radio" name="withdrawMethod" value="bank" class="hidden peer">
                       <div class="card bg-base-100 shadow cursor-pointer peer-checked:ring-2 peer-checked:ring-blue-500">
@@ -409,7 +406,7 @@
                                   <i class="fas fa-money-bill-wave text-yellow-500 mr-2"></i>
                                   <div>
                                       <h5 class="card-title text-sm">Cash Withdrawal</h5>
-                                      <p class="text-xs text-gray-500">Withdraw at a branch</p>
+                                      <p class="text-xs text-gray-500">Withdrawal at a branch</p>
                                   </div>
                               </div>
                           </div>
@@ -425,6 +422,35 @@
 </div>
 </div>
 <!-- Withdraw Modal Done -->
+
+<!-- Transactions Modal -->
+<div class="modal" id="transactionsModal">
+    <div class="modal-box" >
+        <h3 class="font-bold text-lg text-blue-800 mb-[2rem]" >View Transactions</h3>
+       <div class="space-y-4" >
+  <div class="overflow-x-auto">
+    <table class="table w-full table-zebra">
+      <thead class="bg-gray-100">
+        <tr>
+          <th>Date</th>
+          <th>Description</th>
+          <th>Amount</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody id="history">
+       
+      </tbody>
+    </table>
+  </div>
+</div>
+
+        <div class="modal-action mt-4">
+            <button class="btn" id="closeTransactionBtn" >Close</button>
+        </div>
+ </div>
+</div>
+
 
 
 <!-- Footer Start -->
