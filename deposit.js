@@ -18,7 +18,7 @@ function deposit(){
     const descriptionInputDepositValue = descriptionInputDeposit.value;
 
     if(depositAmountValue > 0){
-        if(depositPinValue === 1234){
+        if(depositPinValue === "bank1234"){
             const newBalance = currentAmountValue + depositAmountValue;
             const newMonthlyDepositAmount = monthlyDepositValue + depositAmountValue;
             currentAmount.innerText = newBalance;
@@ -59,7 +59,7 @@ function deposit(){
             }
 
         else{
-            alert('Pin : 1234');
+            alert('Pin : bank1234');
         }
     }
 
