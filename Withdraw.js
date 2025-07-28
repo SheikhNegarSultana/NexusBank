@@ -18,7 +18,7 @@ function withdraw(){
         
         if(currentAmountValue > withdrawAmountValue ){
 
-            if(withdrawPinValue === 1234){
+            if(withdrawPinValue === "bank1234"){
                 const newCurrentAmount = currentAmountValue - withdrawAmountValue ;
                 currentAmount.innerText = newCurrentAmount ;
     
@@ -58,7 +58,7 @@ function withdraw(){
             }
 
             else{
-                alert('Pin : 1234') ;
+                alert('Pin : bank1234') ;
             }
 
         }
