@@ -13,7 +13,7 @@ function withdraw(){
         const currentAmountValue = parseFloat(currentAmount.innerText) ;
         const monthlyWithdrawValue = parseFloat(monthlyWithdraw.innerText);
         const withdrawAmountValue = parseFloat(withdrawAmount.value);
-        const withdrawPinValue = parseInt(withdrawPin.value);
+        const withdrawPinValue = withdrawPin.value;
         const descriptionInputWithdrawValue = descriptionInputWithdraw.value;
         
         if(currentAmountValue > withdrawAmountValue ){
