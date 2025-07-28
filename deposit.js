@@ -59,7 +59,7 @@ function deposit(){
             }
 
         else{
-            alert('Invalid Pin');
+            alert('Pin : 1234');
         }
     }
 
