@@ -16,7 +16,7 @@ function Login(){
                 window.location.href = "Dashboard.html"
             }
             else{
-                alert('Use Password : bank1234');
+                alert('Use Password : bank1234') ;
                 }
         }
     })
