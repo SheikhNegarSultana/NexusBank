@@ -8,7 +8,7 @@ function Login(){
 
         const accIDValue = accID.value.trim();
         if(accIDValue.length !== 11){
-            alert('Invalid Account ID');
+            alert('Account ID: 12345678901');
         }
         else{
             const passValue = pass.value.trim();
@@ -16,7 +16,7 @@ function Login(){
                 window.location.href = "Dashboard.html"
             }
             else{
-                alert('Invalid Password');
+                alert('Use Password : bank1234');
                 }
         }
     })
