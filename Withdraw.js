@@ -64,7 +64,7 @@ function withdraw(){
         }
 
         else{
-            alert('Insufficient balance');
+            alert('Insufficient balance') ;
             return;
             }
 
