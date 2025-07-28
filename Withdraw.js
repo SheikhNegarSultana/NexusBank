@@ -58,7 +58,7 @@ function withdraw(){
             }
 
             else{
-                alert('Pin : 1234');
+                alert('Pin : 1234') ;
             }
 
         }
