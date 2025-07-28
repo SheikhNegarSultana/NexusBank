@@ -14,11 +14,11 @@ function deposit(){
     const currentAmountValue = parseFloat(currentAmount.innerText);
     const monthlyDepositValue = parseFloat(monthlyDeposit.innerText);    
     const depositAmountValue = parseFloat(depositAmount.value);
-    const depositPinValue = parseInt(depositPin.value);
+    const depositPinValue = depositPin.value;
     const descriptionInputDepositValue = descriptionInputDeposit.value;
 
     if(depositAmountValue > 0){
-        if(depositPinValue === "bank1234"){
+        if(depositPinValue === 'bank1234'){
             const newBalance = currentAmountValue + depositAmountValue;
             const newMonthlyDepositAmount = monthlyDepositValue + depositAmountValue;
             currentAmount.innerText = newBalance;
